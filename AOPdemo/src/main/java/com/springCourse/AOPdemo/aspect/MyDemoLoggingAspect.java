@@ -30,8 +30,8 @@ public class MyDemoLoggingAspect {
         } catch (Exception exc) {
 //            Log the exception
             System.out.println(exc.getMessage());
-//            Give a custom message
-            result = "Major accident! But no worries";
+//           Rethrow exception
+            throw exc;
         }
 
 //        end timestamp

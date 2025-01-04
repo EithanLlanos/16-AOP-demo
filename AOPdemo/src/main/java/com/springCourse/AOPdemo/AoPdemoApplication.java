@@ -25,7 +25,7 @@ public class AoPdemoApplication {
 //		Call the business method
         accountDAO.addAccount();
 //		Call the membership business method
-        memberShipDAO.addAccount();
+        memberShipDAO.addSillyMember();
 //		Call it again!
         System.out.println("\nCalling it again!\n");
         accountDAO.addAccount();

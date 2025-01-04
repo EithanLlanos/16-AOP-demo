@@ -16,12 +16,28 @@ public class MyDemoLoggingAspect {
     private void forDaoPackage() {
     }
 
-    @Before("forDaoPackage()")
+    //    Add pointcut for setter methods
+    @Pointcut("execution(* com.springCourse.AOPdemo.dao.*.get*())")
+    private void getter() {
+    }
+
+    //    Add pointcut for getter methods
+    @Pointcut("execution(* com.springCourse.AOPdemo.dao.*.set*(..))")
+    private void setter() {
+    }
+
+    //    Create pointcut including package to exclude getter and setter methods
+    @Pointcut("forDaoPackage() && !(getter() || setter())")
+    private void forDaoPackageNoGetterSetter() {
+    }
+
+
+    @Before("forDaoPackageNoGetterSetter()")
     public void beforeAddAccountAdvice() {
         System.out.println("\n ====> Executing @Before advice on addAccount()");
     }
 
-    @Before("forDaoPackage()")
+    @Before("forDaoPackageNoGetterSetter()")
     public void performApiAnalytics() {
         System.out.println("\n ====> Performing API analytics");
     }

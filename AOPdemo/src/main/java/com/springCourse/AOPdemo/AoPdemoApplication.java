@@ -34,8 +34,6 @@ public class AoPdemoApplication {
 
         String name = accountDAO.getName();
         String serviceCode = accountDAO.getServiceCode();
-
-
 //		Call the membership business method
         memberShipDAO.addSillyMember();
         memberShipDAO.goToSleep();

@@ -1,5 +1,6 @@
 package com.springCourse.AOPdemo;
 
+import com.springCourse.AOPdemo.dao.Account;
 import com.springCourse.AOPdemo.dao.AccountDAO;
 import com.springCourse.AOPdemo.dao.MembershipDAO;
 import org.springframework.boot.CommandLineRunner;
@@ -23,11 +24,9 @@ public class AoPdemoApplication {
 
     private void demoTheBeforeAdvice(AccountDAO accountDAO, MembershipDAO memberShipDAO) {
 //		Call the business method
-        accountDAO.addAccount();
+        Account myAccount = new Account();
+        accountDAO.addAccount(myAccount);
 //		Call the membership business method
         memberShipDAO.addSillyMember();
-//		Call it again!
-        System.out.println("\nCalling it again!\n");
-        accountDAO.addAccount();
     }
 }

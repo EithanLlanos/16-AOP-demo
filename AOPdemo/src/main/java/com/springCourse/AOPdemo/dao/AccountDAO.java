@@ -2,5 +2,5 @@ package com.springCourse.AOPdemo.dao;
 
 public interface AccountDAO {
 
-    void addAccount();
+    void addAccount(Account theAccount);
 }
